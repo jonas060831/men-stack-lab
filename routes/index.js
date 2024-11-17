@@ -16,8 +16,8 @@ router.get('/', (req, res) => res.render("index.ejs"))
 
 //read all cars
 router.get('/cars', async(req, res) => {
-    
-    const cars = await models.Car.find()
+    //sort descending order by registration date show the newest one first
+    const cars = await models.Car.find().sort({ registrationDate: 'desc'})
 
     return res.render("cars/allcars.ejs", { cars })
 })
@@ -63,8 +63,10 @@ router.get("/cars/:carId", async(req, res) => {
 router.get("/cars/:carId/edit", async(req, res) => {
     const { carId } = req.params
     const foundCar = await Car.findById(carId)
+    const stringRegistrationDate = dateFormatter(foundCar.registrationDate, false)
+    const stringlastEditDate = dateFormatter(foundCar.lastEditDate, true)
 
-    res.render("cars/edit.ejs", { car: foundCar })
+    res.render("cars/edit.ejs", { car: foundCar, stringRegDate: stringRegistrationDate, stringlastEditDate })
 })
 
 //delete a car

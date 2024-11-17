@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= cars.length %> Car<%= cars.length > 1 ? 's'  : '' %></title>
+    <link rel="stylesheet" href="/css/global.css">
+    <script src="https://kit.fontawesome.com/5aa5c57aae.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
 
-
+    <div class="header-container" >
         <h1>All Cars</h1>
         <a href="/cars/new">Add new Car</a>
+    </div>
 
-    
-    <ul>
-        
-        <!-- i want to conditionally show no cars yet or the name of cars in db-->
-        
-        <% if(cars.length === 0) { %>
-            <h3>No Cars Yet!</h3>
-        <% } else { %>
-            <% cars.forEach(car => { %>
-             <li>  <a href="/cars/<%= car._id%>"> <%= car.carName %> </a> </li>
-            <% }) %>
-        <% } %>
-        
-    </ul>
+    <div class="container">
+        <ul style="display: flex; gap:2rem;flex-wrap: wrap;">
+            
+            <!-- i want to conditionally show no cars yet or the name of cars in db-->
+            
+            <% if(cars.length === 0) { %>
+                <h3>No Cars Yet!</h3>
+            <% } else { %>
+                <% cars.forEach(car => { %>
+                    <a href="/cars/<%= car._id%>" style="display: flex;flex-direction: column;text-align: center;">
+                        <li class="new-car-container" > 
+                            <img src="<%= car.carPicture %>" alt="" />
+                            <%= car.carName %> </a>
+                        </li>
+                    </a>
+                <% }) %>
+            <% } %>
+            
+        </ul>
+    </div>
 </body>
 <%- include('../partials/footer') %>
 </html>

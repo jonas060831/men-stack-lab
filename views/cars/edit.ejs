@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Car</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <script src="https://kit.fontawesome.com/5aa5c57aae.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1> Edit <%= car.carName%> </h1>
+    
+    <div class="header-container">
+        <a href="/cars">back to cars</a>
+    </div>
 
-    <form action="/cars/<%= car._id%>?_method=PUT" method="POST">
+    <div class="container">
+
+        <div class="edit-container">
+            <img src="<%= car.carPicture %>" alt="" />
+        <h1> Edit <%= car.carName%> </h1>
+
+        <p> update: <%= stringlastEditDate%> </p>
+        <p>Registered: <%= stringRegDate%> </p>
+
+        <form action="/cars/<%= car._id%>?_method=PUT" method="POST">
 
         
-        <label for="carName">Car Name:</label>
-        <input type="text" name="carName" id="carName" value="<%= car.carName %>" />
-
-        <label for="okToDrive">Ok to Drive ?</label>
-        <input type="checkbox" name="okToDrive" id="okToDrive" <% if(car.okToDrive) { %>checked<% } %>>
-
-
-        <button type="submit">Update Car</button>
-    </form>
-
-    <a href="/cars">Back to Cars</a>
+            <label for="carName">Car Name:</label>
+            <input type="text" name="carName" id="carName" value="<%= car.carName %>" required/>
+    
+            <div class="checkbox-container">
+                <input type="checkbox" name="okToDrive" id="okToDrive" <% if(car.okToDrive) { %>checked<% } %>>
+                <label for="okToDrive">Ok to Drive ?</label>
+            </div>
+    
+    
+            <button type="submit">Update Car</button>
+        </form>
+        </div>
+    </div>
 </body>
 
 <%- include('../partials/footer') %>

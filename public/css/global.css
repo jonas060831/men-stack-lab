@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --light-bg: #f2f4f7;
+    --dark-bg: #333;
+
+    --light-font-color: #000;
+    --dark-font-color: #fff;
+
+    --light-link-font-color: rgb(0, 121, 251);
+    --dark-link-font-color: #ff8800;
+
+    --light-footer-background-color: rgb(255, 255, 255);
+    --dark-footer-bakcground-color: #2d2d2d;
+
+}
+
+
+
+body {
+    background-color: var(--bg);
+    color: var(--font-color);
+    font-family: Arial;
+}
+
+.header-container {
+    background-color: var(--footer-background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    padding: 0rem 1rem 0rem 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkbox-container {
+    display: flex;
+    gap: 0.3rem;
+}
+
+
+/* https://www.geeksforgeeks.org/how-to-create-multicolored-text-in-a-web-page-using-html-css/ */
+h1 {
+    font-family: Permanent Marker;
+    background: linear-gradient(to right,rgb(0, 174, 255), rgb(227, 227, 26), red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/* https://www.geeksforgeeks.org/how-to-create-multicolored-text-in-a-web-page-using-html-css/ */
+.car-icon {
+    background: linear-gradient(to left,rgb(0, 187, 255), rgb(227, 227, 26), red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+a:link, a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+li {
+ list-style-type: none;
+}
+
+.container {
+    height: 90vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage-header-container {
+    background-color: var(--footer-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.new-car-container {
+    background-color: var(--footer-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.show-page-container {
+    background-color: var(--footer-background-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.edit-container {
+    background-color: var(--footer-background-color);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+button {
+    padding: 1rem;
+    background-color: orange;
+    border-radius: 0.3rem;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+}
+button:hover { background-color: rgb(41, 237, 41);}
+
+#delete-button:hover { background-color: rgb(251, 49, 49); }
+
+input[type=text] {
+    background-color: var(--footer-background-color);
+    border: 1px solid var(--font-color);
+    border-radius: 10px;
+    padding: 0.7rem;
+    color: var(--font-color);
+}
+
+/* https://stackoverflow.com/questions/24322599/why-cannot-change-checkbox-color-whatever-i-do */
+input[type=checkbox] {
+   accent-color: var(--accent-color);
+   cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+}
+
+footer {
+    background-color: var(--footer-background-color);
+    width: 99vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: var(--dark-bg);
+        --font-color: var(--dark-font-color);
+        --link-color: var(--dark-link-font-color);
+        --accent-color: var(--dark-link-font-color);
+        --footer-background-color: var(--dark-footer-bakcground-color);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: var(--light-bg);
+        --font-color: var(--light-font-color);
+        --link-color: var(--light-link-font-color);
+        --accent-color: var(--light-link-font-color);
+        --footer-background-color: var(--light-footer-background-color);
+    }
+}

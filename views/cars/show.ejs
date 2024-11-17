@@ -4,30 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= car.carName %></title>
+    <link rel="stylesheet" href="/css/global.css">
+    <script src="https://kit.fontawesome.com/5aa5c57aae.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <img src="<%= car.carPicture %>" />
+    
+    <div class="header-container">
+        <a href="/">home</a>
+    </div>
 
-    <h1><%= car.carName %>  </h1>
-    <p> update: <%= stringlastEditDate%> </p>
-    <p>Registered: <%= stringRegDate%> </p>
+    <div class="container">
+        <div class="show-page-container">
+            <img src="<%= car.carPicture %>" />
 
-    <% if (car.okToDrive) { %>
-        
-        <p>Ok To Drive </p>
-
-        
-    <% } else { %>
-        <p>Not Ok to Drive</p>
-    <% } %>
-
-    <form action="/cars/<%= car._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete <%= car.carName %></button>
-    </form>
-
-    <a href="/cars/<%= car._id %>/edit">Edit <%= car.carName %></a>
-
-    <a href="/cars">Back to Cars</a>
+            <h1><%= car.carName %>  </h1>
+            <p> update: <%= stringlastEditDate%> </p>
+            <p>Registered: <%= stringRegDate%> </p>
+    
+            <% if (car.okToDrive) { %>
+                
+                <p>Ok To Drive </p>
+    
+                
+            <% } else { %>
+                <p>Not Ok to Drive</p>
+            <% } %>
+    
+            <form action="/cars/<%= car._id%>?_method=DELETE" method="POST">
+                <button type="submit" id="delete-button">Delete <%= car.carName %></button>
+            </form>
+    
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.3rem;">
+                <a href="/cars/<%= car._id %>/edit">Edit <%= car.carName %></a>
+    
+                <a href="/cars">Back to Cars</a>
+            </div>
+        </div>
+    </div>
 </body>
 <%- include('../partials/footer') %>
 </html>
