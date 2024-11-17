@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= car.carName %></title>
+</head>
+<body>
+    <img src="<%= car.carPicture %>" />
+
+    <h1><%= car.carName %>  </h1>
+    <p> update: <%= stringlastEditDate%> </p>
+    <p>Registered: <%= stringRegDate%> </p>
+
+    <% if (car.okToDrive) { %>
+        
+        <p>Ok To Drive </p>
+
+        
+    <% } else { %>
+        <p>Not Ok to Drive</p>
+    <% } %>
+
+    <form action="/cars/<%= car._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= car.carName %></button>
+    </form>
+
+    <a href="/cars/<%= car._id %>/edit">Edit <%= car.carName %></a>
+
+    <a href="/cars">Back to Cars</a>
+</body>
+<%- include('../partials/footer') %>
+</html>

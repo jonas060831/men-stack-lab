@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Car</title>
+</head>
+<body>
+    <a href="/cars">Back to Cars</a>
+
+    <h1>Add a New Car!</h1>
+
+    <form action="/cars" method="POST">
+        <label for="carName">Car Name:</label>
+        <input type="text" name="carName" id="carName" autocomplete="off"/>
+
+
+        <label for="okToDrive">Ok to Drive?</label>
+        <input type="checkbox" name="okToDrive" id="okToDrive" >
+
+
+        <button type="submit">Add Car</button>
+
+    </form>
+
+    
+</body>
+<%- include('../partials/footer') %>
+</html>
